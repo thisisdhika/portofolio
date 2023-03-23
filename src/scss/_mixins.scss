@@ -1,0 +1,43 @@
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
+
+@mixin make-container {
+  width: 100%;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  padding: {
+    left: 20px;
+    right: 20px;
+  }
+
+  @include breakpoint-up('small') {
+    max-width: 576px;
+  }
+
+  @include breakpoint-up('medium') {
+    max-width: 768px;
+  }
+
+  @include breakpoint-up('large') {
+    max-width: 978px;
+  }
+
+  @include breakpoint-up('xlarge') {
+    max-width: 1200px;
+  }
+
+  @include breakpoint-up('xxlarge') {
+    max-width: 1400px;
+  }
+}

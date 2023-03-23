@@ -1,0 +1,3 @@
+@include fontFace($weight: 400, $display: fallback, $fontDir: '@fontsource/caveat-brush/files');
+@include fontFace($weight: 400, $display: fallback, $fontDir: '@fontsource/poppins/files');
+@include fontFace($weight: 400, $display: fallback, $fontDir: '@fontsource/fira-code/files');

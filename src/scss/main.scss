@@ -1,0 +1,31 @@
+@import 'vendor';
+@import 'fonts';
+@import 'variables';
+@import 'mixins';
+@import 'components';
+@import 'pages';
+
+:root {
+  font-size: 18px;
+}
+
+html {
+  color: #ffffff;
+  min-height: 100vh;
+  color-scheme: dark;
+  background-color: $erieBlack;
+  font-family: 'Poppins', sans-serif;
+}
+
+.tid-tag-decoration {
+  opacity: 0.2;
+  font-family: 'Fira Code', monospace;
+  font-size: 24px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 31px;
+}
+
+.tid-text-shadow {
+  text-shadow: -4px 4px 0px rgba(255, 255, 255, 0.5);
+}

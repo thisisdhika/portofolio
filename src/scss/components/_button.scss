@@ -1,0 +1,16 @@
+.tid-btn {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  text-decoration: unset;
+  color: inherit;
+  padding: 15px 30px;
+  border: solid 1px $black;
+  background-color: $black;
+
+  &-outlined {
+    border-color: currentColor;
+    background-color: transparent;
+  }
+}
