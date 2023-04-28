@@ -5,12 +5,6 @@ const Home: React.FC = () => {
   const skillRef = React.useRef<any>()
   const [hoveredSkill, setHoveredSkill] = React.useState(null)
 
-  const getImageURL = React.useCallback(
-    (path: string) => new URL(path, import.meta.url).href,
-    // eslint-disable-next-line comma-dangle
-    []
-  )
-
   React.useEffect(() => {
     if (skillRef.current) {
       const items = skillRef.current.querySelectorAll('.tid-home__skill__board g.item')
@@ -61,7 +55,7 @@ const Home: React.FC = () => {
               </a>
             </div>
             <div className="tid-home__hero__featured">
-              <img src={getImageURL('../../assets/gif/me.gif')} alt="Dhika" />
+              <img src={new URL('../../assets/gif/me.gif', import.meta.url).href} alt="Dhika" />
             </div>
           </div>
           <div className="tid-home__hero__scroller">
@@ -92,7 +86,7 @@ const Home: React.FC = () => {
       </section>
       <section
         className="tid-home__main"
-        style={{ backgroundImage: `url(${getImageURL('../../assets/svgs/line-decoration.svg')})` }}
+        style={{ backgroundImage: `url(${new URL('../../assets/svgs/line-decoration.svg', import.meta.url).href})` }}
       >
         <div className="tid-container">
           <div className="tid-home__main__quote">
@@ -151,7 +145,7 @@ const Home: React.FC = () => {
                 <br />
               </div>
               <div className="tid-home__main__work__content__right">
-                <img src={getImageURL('../../assets/images/pjr-showcase.png')} alt="PJR & WAL Korlantas" />
+                <img src={new URL('../../assets/images/pjr-showcase.png', import.meta.url).href} alt="PJR & WAL Korlantas" />
               </div>
             </div>
           </div>
@@ -160,7 +154,7 @@ const Home: React.FC = () => {
             <div className="tid-home__main__job__content">
               <div className="tid-home__main__job__content__left">
                 <a target="_blank" href="//softwareseni.com" rel="noreferrer">
-                  <img src={getImageURL('../../assets/images/softwareseni.png')} alt="SoftwareSeni" />
+                  <img src={new URL('../../assets/images/softwareseni.png', import.meta.url).href} alt="SoftwareSeni" />
                 </a>
               </div>
               <div className="tid-home__main__job__content__right">
@@ -220,9 +214,9 @@ const Home: React.FC = () => {
             </div>
             <div
               className="tid-home__about__content__right"
-              style={{ backgroundImage: `url(${getImageURL('../../assets/images/codes-bg.png')})` }}
+              style={{ backgroundImage: `url(${new URL('../../assets/images/codes-bg.png', import.meta.url).href})` }}
             >
-              <img src={getImageURL('../../assets/images/me-blink.png')} alt="Dhika P Ardana" />
+              <img src={new URL('../../assets/images/me-blink.png', import.meta.url).href} alt="Dhika P Ardana" />
             </div>
           </div>
           <span className="tid-tag-decoration">{'</section>'}</span>
@@ -247,8 +241,8 @@ const Home: React.FC = () => {
                     animate={{ opacity: 1 }}
                     initial={{ opacity: 0 }}
                   >
-                    {/* {hoveredSkill} */}
-                    Coming Soon...
+                    {hoveredSkill}
+                    {/* Coming Soon... */}
                   </motion.p>
                 ) : (
                   <motion.p exit={{ opacity: 0 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>

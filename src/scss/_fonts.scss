@@ -1,3 +1,8 @@
-@include fontFace($weight: 400, $display: fallback, $fontDir: '@fontsource/caveat-brush/files');
+@import '@fontsource/poppins/scss/mixins';
 @include fontFace($weight: 400, $display: fallback, $fontDir: '@fontsource/poppins/files');
+
+@import '@fontsource/fira-code/scss/mixins';
 @include fontFace($weight: 400, $display: fallback, $fontDir: '@fontsource/fira-code/files');
+
+@import '@fontsource/caveat-brush/scss/mixins';
+@include fontFace($weight: 400, $display: fallback, $fontDir: '@fontsource/caveat-brush/files');

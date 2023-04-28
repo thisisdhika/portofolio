@@ -1,11 +1,17 @@
+import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import svgrPlugin from 'vite-plugin-svgr'
 import tsConfigPaths from 'vite-tsconfig-paths'
 import { EsLinter, linterPlugin } from 'vite-plugin-linter'
-import svgrPlugin from 'vite-plugin-svgr'
 
 // https://vitejs.dev/config/
 export default defineConfig((configEnv) => ({
+  resolve: {
+    alias: {
+      '@fontsource': resolve('./node_modules/@fontsource'),
+    },
+  },
   plugins: [
     react(),
     tsConfigPaths(),
