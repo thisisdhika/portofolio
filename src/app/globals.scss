@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root,
+  [data-theme] {
+    @apply font-sans text-white bg-base-100;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply rounded-none;
+  }
+
+  .navbar {
+    @apply p-0;
+
+    .menu {
+      @apply text-base;
+
+      li {
+        a {
+          transition-property: text-shadow, color;
+          @apply text-neutral-400 font-medium text-shadow-0 shadow-blue-500 ease-in-out duration-150;
+
+          &:focus,
+          &:hover,
+          &:active,
+          &.active {
+            @apply outline-none bg-transparent text-shadow-lg text-white;
+          }
+        }
+      }
+    }
+  }
+}
