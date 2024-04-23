@@ -13,19 +13,19 @@ interface IHeaderProps {
 const LINKS = [
   {
     label: 'Timeline',
-    href: '#timeline',
+    id: 'timeline',
   },
   {
     label: 'About',
-    href: '#about',
+    id: 'about',
   },
   {
     label: 'Work',
-    href: '#work',
+    id: 'work',
   },
   {
     label: 'Contact',
-    href: '#contact',
+    id: 'contact',
   },
 ]
 
@@ -36,6 +36,16 @@ const Header: React.FC<IHeaderProps> = ({ animate }) => {
   const [{ y }, scrollTo] = useWindowScroll()
   const [lastY, setLastY] = React.useState(0)
   const [direction, setDirection] = React.useState<'up' | 'down'>('down')
+  const [activeSection, setActiveSection] = React.useState<string>('intro')
+
+  const navigateScroll = React.useCallback(
+    (id: string) => {
+      const elem = document.getElementById(id)
+
+      if (elem) scrollTo({ left: 0, top: elem.getBoundingClientRect().top, behavior: 'smooth' })
+    },
+    [scrollTo],
+  )
 
   React.useLayoutEffect(() => {
     setDirection(!!y && lastY > y ? 'up' : 'down')
@@ -48,6 +58,24 @@ const Header: React.FC<IHeaderProps> = ({ animate }) => {
         targets: headerRef.current,
         easing: 'easeInOutSine',
         complete: () => {
+          const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2,
+          }
+
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) setActiveSection(entry.target.id)
+            })
+          }, observerOptions)
+
+          LINKS.concat([{ id: 'intro' } as never])
+            .map((link) => document.getElementById(link.id))
+            .forEach((section) => {
+              section && observer.observe(section)
+            })
+
           headerRef.current?.style.removeProperty('opacity')
           headerRef.current?.style.removeProperty('transform')
         },
@@ -72,21 +100,26 @@ const Header: React.FC<IHeaderProps> = ({ animate }) => {
         direction === 'down' && y! > height! && '-translate-y-full',
         y! > height! ? 'py-2' : 'pt-5',
         y! > height! && direction === 'up' && 'bg-base-100 bg-opacity-30',
-        'fixed top-0 inset-x-0 transition-all ease-linear duration-300 backdrop-blur-sm',
+        'z-50 fixed top-0 inset-x-0 transition-all ease-linear duration-300 backdrop-blur-sm',
       )}
     >
-      <div className="container">
-        <div className="navbar">
+      <div className="w-full px-2 md:px-6 lg:px-10">
+        <div className="relative navbar">
           <div className="flex-1">
-            <a className="btn btn-link p-0">
-              <Image src="/images/logo-white.svg" width={50} height={50} alt="D" />
+            <a className="btn p-0" onClick={() => navigateScroll('intro')}>
+              <Image src="/images/logo-white.svg" width={36.5} height={48} alt="D" />
             </a>
           </div>
           <div className="flex-none">
             <ul className="menu menu-horizontal px-1 mr-4">
               {LINKS.map((link, key) => (
                 <li key={key}>
-                  <a className={cn(key === 0 && 'active')}>{link.label}</a>
+                  <a
+                    onClick={() => navigateScroll(link.id)}
+                    className={cn(activeSection === link.id && 'active')}
+                  >
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>

@@ -34,7 +34,7 @@ const ContactEmail: React.FC<IContactEmailProps> = ({ animate }) => {
   }, [animate])
 
   return (
-    <nav ref={navRef} className="fixed bottom-0 right-16">
+    <nav ref={navRef} className="fixed bottom-0 right-4 md:right-8 lg:right-12">
       <div className="flex flex-col items-center gap-y-3 translate-x-1/2">
         <ul className="flex flex-col gap-y-2">
           <li className="opacity-0">

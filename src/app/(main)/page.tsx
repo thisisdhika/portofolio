@@ -1,11 +1,13 @@
 import * as React from 'react'
+import * as Section from '@/components/sections'
 
 // million-ignore
 const Home: React.FC = () => {
   return (
-    <div className="flex justify-center items-center prose prose-lg container h-screen">
-      <h1>Coming Soon...</h1>
-    </div>
+    <>
+      <Section.Intro />
+      <Section.Timeline />
+    </>
   )
 }
 

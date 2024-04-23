@@ -9,11 +9,11 @@ module.exports = {
     container: {
       center: true,
       padding: {
-        DEFAULT: '1rem',
-        sm: '2rem',
-        lg: '4rem',
-        xl: '5rem',
-        '2xl': '6rem',
+        DEFAULT: '1.5rem',
+        sm: '3rem',
+        lg: '7rem',
+        xl: '8rem',
+        '2xl': '10rem',
       },
     },
     extend: {
@@ -23,6 +23,7 @@ module.exports = {
       },
       textShadow: {
         0: '0 0px 0px var(--tw-shadow-color)',
+        1: '-4px 4px 0px var(--tw-shadow-color)',
         sm: '0 1px 2px var(--tw-shadow-color)',
         DEFAULT: '0 2px 4px var(--tw-shadow-color)',
         lg: '0 10px 16px var(--tw-shadow-color)',

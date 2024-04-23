@@ -35,12 +35,12 @@ const SocialMedia: React.FC<ISocialMediaProps> = ({ animate }) => {
   }, [animate])
 
   return (
-    <nav ref={navRef} className="fixed bottom-0 left-16">
+    <nav ref={navRef} className="fixed bottom-0 left-4 md:left-8 lg:left-12">
       <div className="flex flex-col items-center gap-y-3 -translate-x-1/2">
-        <ul className="flex flex-col gap-y-2">
+        <ul className="flex flex-col gap-y-4">
           <li className="opacity-0">
             <a
-              className="btn btn-sm btn-square duration-150 text-white text-opacity-50 hover:text-opacity-100"
+              className="duration-150 text-white text-opacity-50 hover:text-opacity-100"
               href="https://instagram.com/thisisdhika_"
             >
               <svg width="1.85rem" height="1.85rem" viewBox="0 0 36 36" fill="none">
@@ -57,7 +57,7 @@ const SocialMedia: React.FC<ISocialMediaProps> = ({ animate }) => {
           </li>
           <li className="opacity-0">
             <a
-              className="btn btn-sm btn-square duration-150 text-white text-opacity-50 hover:text-opacity-100"
+              className="duration-150 text-white text-opacity-50 hover:text-opacity-100"
               href="https://linkedin.com/in/thisisdhika"
             >
               <svg width="1.85rem" height="1.85rem" viewBox="0 0 36 36" fill="none">
@@ -70,7 +70,7 @@ const SocialMedia: React.FC<ISocialMediaProps> = ({ animate }) => {
           </li>
           <li className="opacity-0">
             <a
-              className="btn btn-sm btn-square duration-150 text-white text-opacity-50 hover:text-opacity-100"
+              className="duration-150 text-white text-opacity-50 hover:text-opacity-100"
               href="https://github.com/thisisdhika"
             >
               <svg width="1.85rem" height="1.85rem" viewBox="0 0 36 36" fill="none">
@@ -83,7 +83,7 @@ const SocialMedia: React.FC<ISocialMediaProps> = ({ animate }) => {
           </li>
           <li className="opacity-0">
             <a
-              className="btn btn-sm btn-square duration-150 text-white text-opacity-50 hover:text-opacity-100"
+              className="duration-150 text-white text-opacity-50 hover:text-opacity-100"
               href="https://gitlab.com/thisisdhika"
             >
               <svg width="1.85rem" height="1.85rem" viewBox="0 0 36 36" fill="none">

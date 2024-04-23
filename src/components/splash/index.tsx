@@ -13,7 +13,6 @@ const Splash: React.FC<ISplashProps> = ({ onFinish }) => {
   React.useEffect(() => {
     if (!!svgRef.current) {
       const timeline = anime.timeline({
-        complete: onFinish,
         easing: 'easeInOutSine',
       })
 
@@ -40,16 +39,26 @@ const Splash: React.FC<ISplashProps> = ({ onFinish }) => {
           targets: svgRef.current.querySelectorAll('path'),
           duration: 1400,
           strokeWidth: 15,
+          complete: onFinish,
           strokeDashoffset: [anime.setDashoffset, 1],
           stroke: ['rgba(255, 255, 255, 1)', 'rgba(255, 255, 255, 0)'],
         })
         .add(
           {
-            easing: 'easeInOutCirc',
+            targets: svgRef.current.querySelectorAll('path'),
+            duration: 1400,
+            fill: ['rgba(255, 255, 255, 1)', 'rgba(255, 255, 255, 0)'],
+          },
+          4100,
+        )
+        .add(
+          {
+            easing: 'easeInOutQuart',
             targets: svgRef.current.parentNode,
-            duration: 2500,
-            opacity: 0,
-            translateY: ['0%', '-60%', '-100%'],
+            duration: 1800,
+            scale: 10,
+            opacity: [1, 0.75, 0.4, 0],
+            // translateY: ['0%', '-60%', '-100%'],
           },
           4100,
         )
