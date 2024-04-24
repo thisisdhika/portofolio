@@ -35,4 +35,12 @@
       }
     }
   }
+
+  .footer-bg {
+    background: rgb(17, 64, 90);
+    background: -moz-radial-gradient(at bottom, rgb(17, 64, 90) 10%, rgb(25, 25, 25) 45%);
+    background: -webkit-radial-gradient(at bottom, rgb(17, 64, 90) 10%, rgb(25, 25, 25) 45%);
+    background: radial-gradient(at bottom, rgb(17, 64, 90) 10%, rgb(25, 25, 25) 45%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#11405a",endColorstr="#191919",GradientType=1);
+  }
 }

@@ -4,12 +4,14 @@ import * as React from 'react'
 import anime from 'animejs'
 import Image from 'next/image'
 import { breakWord } from '@/utils/breakWord'
-import { useIntersectionObserver, useWindowScroll } from '@uidotdev/usehooks'
+import { useIntersectionObserver, useToggle, useWindowScroll } from '@uidotdev/usehooks'
 
-// million-ignore
 export const Timeline: React.FC = () => {
   const [{ y }] = useWindowScroll()
   const ref = React.useRef<HTMLElement>(null)
+  const [isQuoteAnimated, toggleQuoteAnimated] = useToggle(false)
+  const [isLastJobAnimated, toggleLastJobAnimated] = useToggle(false)
+  const [isRecentWorkAnimated, toggleRecentWorkAnimated] = useToggle(false)
   const [quoteIntRef, quoteEntry] = useIntersectionObserver({
     threshold: 0.15,
   })
@@ -20,10 +22,11 @@ export const Timeline: React.FC = () => {
     threshold: 0.0,
   })
 
-  React.useEffect(() => {
-    if (ref.current && quoteEntry?.isIntersecting) {
+  React.useLayoutEffect(() => {
+    if (ref.current && quoteEntry?.isIntersecting && !isQuoteAnimated) {
       const timeline = anime.timeline({
         easing: 'easeInOutSine',
+        complete: () => toggleQuoteAnimated(true),
       })
 
       timeline
@@ -32,99 +35,89 @@ export const Timeline: React.FC = () => {
           opacity: [0, 1],
           translateZ: 0,
           easing: 'easeOutExpo',
-          duration: 1000,
-          delay: (_, i) => 80 * i,
+          duration: 600,
+          delay: (_, i) => 50 * i,
         })
         .add(
           {
             targets: ref.current.querySelectorAll('.quote path'),
-            duration: 2400,
+            duration: 1800,
             strokeDashoffset: [anime.setDashoffset, 1],
           },
-          500,
+          2400,
         )
-        .add({
-          targets: ref.current.querySelectorAll('.quote path'),
-          duration: 800,
-          fill: '#11405A',
-        })
+        .add(
+          {
+            targets: ref.current.querySelectorAll('.quote path'),
+            duration: 800,
+            fill: '#11405A',
+          },
+          3400,
+        )
     }
   }, [quoteEntry?.isIntersecting])
 
-  React.useEffect(() => {
-    if (ref.current && recentWorkEntry?.isIntersecting) {
+  React.useLayoutEffect(() => {
+    if (ref.current && recentWorkEntry?.isIntersecting && !isRecentWorkAnimated) {
       const timeline = anime.timeline({
         easing: 'easeInOutSine',
+        complete: () => toggleRecentWorkAnimated(true),
       })
 
       timeline
+        .add({
+          targets: ref.current.querySelectorAll('.recent-work span.word'),
+          opacity: [0, 1],
+          translateZ: 0,
+          easing: 'easeOutExpo',
+          duration: 1000,
+          delay: (_, i) => 80 * i,
+        })
         .add({
           targets: ref.current.querySelectorAll('.recent-work .featured-img'),
           easing: 'easeInOutElastic',
-          delay: 350,
           scale: [0, 1],
           opacity: [0, 1],
           duration: 1500,
         })
-        .add(
-          {
-            targets: ref.current.querySelectorAll('.recent-work span.word'),
-            opacity: [0, 1],
-            translateZ: 0,
-            easing: 'easeOutExpo',
-            duration: 1000,
-            delay: (_, i) => 80 * i,
-          },
-          800,
-        )
     }
   }, [recentWorkEntry?.isIntersecting])
 
-  React.useEffect(() => {
-    if (ref.current && lastJobEntry?.isIntersecting) {
+  React.useLayoutEffect(() => {
+    if (ref.current && lastJobEntry?.isIntersecting && !isLastJobAnimated) {
       const timeline = anime.timeline({
         easing: 'easeInOutSine',
+        complete: () => toggleLastJobAnimated(true),
       })
 
       timeline
         .add({
+          targets: ref.current.querySelectorAll('.last-job span.word'),
+          opacity: [0, 1],
+          translateZ: 0,
+          easing: 'easeOutExpo',
+          duration: 1000,
+          delay: (_, i) => 80 * i,
+        })
+        .add({
           targets: ref.current.querySelectorAll('.last-job .featured-img'),
           easing: 'easeInOutElastic',
-          delay: 350,
           scale: [0, 1],
           opacity: [0, 1],
           duration: 1500,
         })
-        .add(
-          {
-            targets: ref.current.querySelectorAll('.last-job span.word'),
-            opacity: [0, 1],
-            translateZ: 0,
-            easing: 'easeOutExpo',
-            duration: 1000,
-            delay: (_, i) => 80 * i,
-          },
-          800,
-        )
     }
   }, [lastJobEntry?.isIntersecting])
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (ref.current) {
       const pathAnim = anime({
-        targets: ref.current.querySelectorAll('#path path, #path circle.circle'),
+        targets: ref.current.querySelectorAll('#path path'),
         elasticity: 200,
         autoplay: false,
         easing: 'easeInOutSine',
         strokeDashoffset: [anime.setDashoffset, 1],
-        delay: (el) => {
-          if (el.tagName === 'circle') return 300
-          return 0
-        },
-        duration: (el) => {
-          if (el.tagName === 'circle') return 850
-          return 1450
-        },
+        duration: 1450,
       })
 
       const topCircleAnim = anime({
@@ -154,7 +147,7 @@ export const Timeline: React.FC = () => {
   }, [y])
 
   return (
-    <section ref={ref} id="timeline" className="relative h-[200vh]">
+    <section ref={ref} id="timeline" className="relative">
       <div className="container py-20">
         <div ref={quoteIntRef} className="quote relative z-10 text-center">
           <h6 className="font-semibold text-base">{breakWord('QUOTE', 'span', 'word opacity-0')}</h6>
@@ -223,8 +216,8 @@ export const Timeline: React.FC = () => {
                 width={390}
                 height={298.67}
                 alt="PJR & WAL Korlantas"
-                src="/images/pjrstream.svg"
-                className="featured-img origin-center"
+                src="/images/pjrstream.png"
+                className="featured-img scale-0 opacity-0 origin-center"
               />
             </div>
           </div>
@@ -241,7 +234,7 @@ export const Timeline: React.FC = () => {
                 height={188.46}
                 alt="PJR & WAL Korlantas"
                 src="/images/SS.png"
-                className="featured-img origin-center"
+                className="featured-img scale-0 opacity-0 origin-center"
               />
             </div>
             <div className="col-span-2" />
@@ -277,9 +270,9 @@ export const Timeline: React.FC = () => {
         className="absolute mx-auto top-0 inset-x-0"
       >
         <path
-          opacity="0.6"
+          opacity="0.35"
           stroke="#11405A"
-          stroke-width="4"
+          strokeWidth="4"
           d="M57.0004 10C57.0004 10 57.0004 44.5877 57.0004 66.75C57.0004 88.9123 44.5004 111 57.0004 123.5C69.5004 136 169.5 237 57.0004 237C-55.4992 237 39.5008 333 57.0004 350.5C74.5001 368 57.0004 385.088 57.0004 407.25C57.0004 429.412 57.0004 464 57.0004 464L57.0004 1439.5"
         />
         <circle
@@ -290,8 +283,6 @@ export const Timeline: React.FC = () => {
           className="shadow-xl shadow-accent origin-top opacity-0 scale-0"
         />
         <circle cx="57" cy="1440" r="10" fill="#11405A" className="shadow-xl shadow-accent origin-bottom" />
-        <circle cx="58" cy="642" r="10" stroke="#A6A6A6" strokeWidth={2} className="circle" />
-        <circle cx="57" cy="1126" r="10" stroke="#A6A6A6" strokeWidth={2} className="circle" />
       </svg>
     </section>
   )

@@ -6,7 +6,6 @@ import Image from 'next/image'
 import { breakWord } from '@/utils/breakWord'
 import { useIntersectionObserver, useToggle } from '@uidotdev/usehooks'
 
-// million-ignore
 export const Intro: React.FC = () => {
   const ref = React.useRef<HTMLElement>(null)
   const [isAnimated, toggleAnimated] = useToggle(false)
@@ -14,7 +13,7 @@ export const Intro: React.FC = () => {
     threshold: 0,
   })
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     if (ref.current && entry?.isIntersecting && !isAnimated) {
       const timeline = anime.timeline({
         easing: 'easeInOutSine',
