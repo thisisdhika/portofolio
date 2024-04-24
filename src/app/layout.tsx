@@ -2,6 +2,7 @@ import * as React from 'react'
 import { cn } from '@/utils/cn'
 import type { Metadata } from 'next'
 import { Inter, Fira_Code } from 'next/font/google'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import './globals.scss'
 
@@ -25,7 +26,10 @@ export const metadata: Metadata = {
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <html lang="en" data-theme="elka" className={cn(inter.variable, fira.variable)}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   )
 }
