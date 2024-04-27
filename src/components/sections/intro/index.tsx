@@ -106,3 +106,5 @@ export const Intro: React.FC = () => {
     </section>
   )
 }
+
+export default Intro

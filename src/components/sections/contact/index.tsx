@@ -2,7 +2,6 @@
 
 import * as React from 'react'
 import anime from 'animejs'
-import Image from 'next/image'
 import { breakWord } from '@/utils/breakWord'
 import { useIntersectionObserver, useToggle } from '@uidotdev/usehooks'
 
@@ -44,7 +43,11 @@ export const Contact: React.FC = () => {
   }, [entry?.isIntersecting])
 
   return (
-    <section ref={ref} id="contact" className="footer-bg flex items-center pb-6 lg:pb-10 xl:pb-20 pt-14 xl:pt-32">
+    <section
+      ref={ref}
+      id="contact"
+      className="footer-bg flex items-center pb-6 lg:pb-10 xl:pb-20 pt-14 xl:pt-32"
+    >
       <div className="container">
         <div ref={intersectionRef} className="text-center">
           <div className="relative md:w-max mx-auto mt-8">
@@ -63,7 +66,11 @@ export const Contact: React.FC = () => {
               {breakWord('<p>', 'span', 'word opacity-0')}
             </span>
             <p>
-              {breakWord('My inbox is always open. Feel free to talk everything and every chance,', 'span', 'main-word opacity-0')}
+              {breakWord(
+                'My inbox is always open. Feel free to talk everything and every chance,',
+                'span',
+                'main-word opacity-0',
+              )}
               <br />
               {breakWord('I’ll try my best to get back to you!', 'span', 'main-word opacity-0')}
             </p>
@@ -80,3 +87,5 @@ export const Contact: React.FC = () => {
     </section>
   )
 }
+
+export default Contact

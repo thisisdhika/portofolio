@@ -9,7 +9,9 @@ import { useIntersectionObserver, useMediaQuery, useToggle, useWindowScroll } fr
 export const Timeline: React.FC = () => {
   const [{ y }] = useWindowScroll()
   const ref = React.useRef<HTMLElement>(null)
-  const isTablet = useMediaQuery('screen and (min-width: 768px) and (max-width: 1024px) and (min-height: 1024px)')
+  const isTablet = useMediaQuery(
+    'screen and (min-width: 768px) and (max-width: 1024px) and (min-height: 1024px)',
+  )
   const [isQuoteAnimated, toggleQuoteAnimated] = useToggle(false)
   const [isLastJobAnimated, toggleLastJobAnimated] = useToggle(false)
   const [isRecentWorkAnimated, toggleRecentWorkAnimated] = useToggle(false)
@@ -154,7 +156,7 @@ export const Timeline: React.FC = () => {
           <h6 className="font-semibold text-base">{breakWord('QUOTE', 'span', 'word opacity-0')}</h6>
           <h1 className="text-3xl font-bold my-16">
             <span className="word opacity-0">Nothing impossible in any things that live in Internet, </span>
-            <br className='hidden xl:block'/>
+            <br className="hidden xl:block" />
             <span className="word opacity-0">It'll just need a sense of Time.</span>
           </h1>
           <h5 className="font-semibold text-lg font-serif">
@@ -286,3 +288,5 @@ export const Timeline: React.FC = () => {
     </section>
   )
 }
+
+export default Timeline
