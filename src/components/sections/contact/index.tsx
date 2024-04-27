@@ -44,10 +44,10 @@ export const Contact: React.FC = () => {
   }, [entry?.isIntersecting])
 
   return (
-    <section ref={ref} id="contact" className="footer-bg flex items-center h-[50vh]">
+    <section ref={ref} id="contact" className="footer-bg flex items-center pb-6 lg:pb-10 xl:pb-20 pt-14 xl:pt-32">
       <div className="container">
         <div ref={intersectionRef} className="text-center">
-          <div className="relative w-max mx-auto mt-8">
+          <div className="relative md:w-max mx-auto mt-8">
             <span className="absolute top-[-2ch] left-0 -translate-x-1/2 font-serif text-white text-opacity-20">
               {breakWord('<h1>', 'span', 'word opacity-0')}
             </span>
@@ -58,7 +58,7 @@ export const Contact: React.FC = () => {
               {breakWord('</h1>', 'span', 'word opacity-0')}
             </span>
           </div>
-          <div className="relative w-max mt-6 mb-20 mx-auto">
+          <div className="relative md:w-max mt-6 mb-20 mx-auto">
             <span className="absolute top-[-2ch] left-0 -translate-x-1/2 font-serif text-white text-opacity-20">
               {breakWord('<p>', 'span', 'word opacity-0')}
             </span>

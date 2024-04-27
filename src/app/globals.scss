@@ -5,7 +5,31 @@
 @layer base {
   :root,
   [data-theme] {
+    --primary: theme(colors.base-100);
+    --secondary: theme(colors.primary);
     @apply font-sans text-white bg-base-100;
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) var(--primary);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--primary);
+    border-radius: 5px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--secondary);
+    border-radius: 14px;
+    border: 3px solid var(--primary);
   }
 }
 

@@ -57,7 +57,7 @@ export const About: React.FC = () => {
   }, [entry?.isIntersecting])
 
   return (
-    <section ref={ref} id="about" className="flex items-center h-[90vh]">
+    <section ref={ref} id="about" className="flex items-center pt-24 pb-20">
       <div className="container">
         <div ref={intersectionRef} className="flex items-center">
           <div className="grid grid-cols-12 gap-4">
@@ -105,7 +105,7 @@ export const About: React.FC = () => {
               </span>
             </div>
             <div className="relative grid grid-cols-subgrid gap-4 col-span-5">
-              <div className="col-start-2 col-span-3 pt-[120px] flex justify-center items-center z-10">
+              <div className="col-start-1 lg:col-start-2 col-span-4 lg:col-span-3 pt-[120px] flex justify-center items-center z-10">
                 <Image
                   src="/images/memoji-behind-laptop.png"
                   width={259}

@@ -4,11 +4,12 @@ import * as React from 'react'
 import anime from 'animejs'
 import Image from 'next/image'
 import { breakWord } from '@/utils/breakWord'
-import { useIntersectionObserver, useToggle, useWindowScroll } from '@uidotdev/usehooks'
+import { useIntersectionObserver, useMediaQuery, useToggle, useWindowScroll } from '@uidotdev/usehooks'
 
 export const Timeline: React.FC = () => {
   const [{ y }] = useWindowScroll()
   const ref = React.useRef<HTMLElement>(null)
+  const isTablet = useMediaQuery('screen and (min-width: 768px) and (max-width: 1024px) and (min-height: 1024px)')
   const [isQuoteAnimated, toggleQuoteAnimated] = useToggle(false)
   const [isLastJobAnimated, toggleLastJobAnimated] = useToggle(false)
   const [isRecentWorkAnimated, toggleRecentWorkAnimated] = useToggle(false)
@@ -117,7 +118,7 @@ export const Timeline: React.FC = () => {
         autoplay: false,
         easing: 'easeInOutSine',
         strokeDashoffset: [anime.setDashoffset, 1],
-        duration: 1450,
+        duration: window.outerHeight,
       })
 
       const topCircleAnim = anime({
@@ -138,13 +139,13 @@ export const Timeline: React.FC = () => {
         opacity: [0, 1],
       })
 
-      const top = y! + 50
+      const top = y! + (isTablet ? window.innerHeight / 2 : 50)
 
       topCircleAnim.seek(top)
       pathAnim.seek(top - topCircleAnim.duration)
       bottomCircleAnim.seek(top - topCircleAnim.duration - pathAnim.duration)
     }
-  }, [y])
+  }, [y, isTablet])
 
   return (
     <section ref={ref} id="timeline" className="relative">
@@ -152,8 +153,8 @@ export const Timeline: React.FC = () => {
         <div ref={quoteIntRef} className="quote relative z-10 text-center">
           <h6 className="font-semibold text-base">{breakWord('QUOTE', 'span', 'word opacity-0')}</h6>
           <h1 className="text-3xl font-bold my-16">
-            <span className="word opacity-0">Nothing impossible in any things that live in Internet,</span>
-            <br />
+            <span className="word opacity-0">Nothing impossible in any things that live in Internet, </span>
+            <br className='hidden xl:block'/>
             <span className="word opacity-0">It'll just need a sense of Time.</span>
           </h1>
           <h5 className="font-semibold text-lg font-serif">
@@ -186,12 +187,12 @@ export const Timeline: React.FC = () => {
             />
           </svg>
         </div>
-        <div ref={recentWorkIntRef} className="recent-work relative z-10 my-24">
+        <div ref={recentWorkIntRef} className="recent-work relative z-10 my-16 lg:my-24">
           <h6 className="font-semibold text-base text-center">
             {breakWord('RECENT WORK', 'span', 'word opacity-0')}
           </h6>
-          <div className="grid grid-cols-12 gap-4 items-center my-14">
-            <div className="col-span-5">
+          <div className="grid grid-cols-12 gap-4 items-center my-8 lg:my-14">
+            <div className="col-span-6 lg:col-span-5">
               <span className="block font-serif text-white text-opacity-20">
                 {breakWord('<p>', 'span', 'word opacity-0')}
               </span>
@@ -209,8 +210,7 @@ export const Timeline: React.FC = () => {
                 {breakWord('</p>', 'span', 'word opacity-0')}
               </span>
             </div>
-            <div className="col-span-2" />
-            <div className="col-span-5">
+            <div className="pl-4 lg:pl-0 col-start-7 lg:col-start-8 col-span-6 lg:col-span-5">
               <Image
                 priority
                 width={390}
@@ -222,12 +222,12 @@ export const Timeline: React.FC = () => {
             </div>
           </div>
         </div>
-        <div ref={lastJobIntRef} className="last-job relative z-10 my-24">
+        <div ref={lastJobIntRef} className="last-job relative z-10 mt-16 mb-4 lg:mb-16 lg:mt-24">
           <h6 className="font-semibold text-base text-center">
             {breakWord('LAST JOB', 'span', 'word opacity-0')}
           </h6>
-          <div className="grid grid-cols-12 gap-4 items-center my-14">
-            <div className="col-span-5">
+          <div className="grid grid-cols-12 gap-4 items-center my-8 lg:my-14">
+            <div className="pr-4 lg:pr-0 col-span-6 lg:col-span-5">
               <Image
                 priority
                 width={490}
@@ -237,8 +237,7 @@ export const Timeline: React.FC = () => {
                 className="featured-img scale-0 opacity-0 origin-center"
               />
             </div>
-            <div className="col-span-2" />
-            <div className="col-span-5">
+            <div className="col-start-7 lg:col-start-8 col-span-6 lg:col-span-5">
               <span className="block font-serif text-white text-opacity-20">
                 {breakWord('<p>', 'span', 'word opacity-0')}
               </span>

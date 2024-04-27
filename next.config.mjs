@@ -11,7 +11,7 @@ const nextConfig = {
 const millionConfig = {
   auto: {
     threshold: 0.05, // default: 0.1,
-    skip: [], // default []
+    skip: [''], // default []
     // if you're using RSC: auto: { rsc: true },
   },
 }

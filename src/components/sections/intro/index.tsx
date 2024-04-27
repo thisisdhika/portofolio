@@ -51,7 +51,7 @@ export const Intro: React.FC = () => {
   }, [entry?.isIntersecting])
 
   return (
-    <section ref={ref} id="intro" className="flex items-center h-[95vh]">
+    <section ref={ref} id="intro" className="flex items-center py-44 tall:py-72 tablet:pt-72 tablet:pb-48 xtall:py-96">
       <div className="container">
         <div ref={intersectionRef} className="flex items-center">
           <div className="flex-1">
@@ -61,13 +61,13 @@ export const Intro: React.FC = () => {
             <span className="block font-serif text-white text-opacity-20 ml-4">
               {breakWord('<h1>', 'span', 'word opacity-0')}
             </span>
-            <h3 className="text-6xl font-semibold ml-8">
+            <h3 className="text-4xl xl:text-5xl 2xl:text-6xl font-semibold ml-8">
               {breakWord('Hi!', 'span', 'intro-word opacity-0')}
               <span className="text-base font-normal font-serif text-white text-opacity-20">
                 {breakWord('<br/>', 'span', 'word opacity-0')}
               </span>
             </h3>
-            <h1 className="text-7xl font-extrabold ml-8">
+            <h1 className="text-5xl xl:text-6xl 2xl:text-7xl font-extrabold ml-8">
               {breakWord("I'm ", 'span', 'intro-word opacity-0')}
               <span className="intro-word text-shadow-1 shadow-slate-400 opacity-0">D</span>
               {breakWord('hika', 'span', 'intro-word opacity-0')}
@@ -75,13 +75,13 @@ export const Intro: React.FC = () => {
                 {breakWord('<br/>', 'span', 'word opacity-0')}
               </span>
             </h1>
-            <h2 className="text-6xl font-bold ml-8">
+            <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-bold ml-8">
               {breakWord('a Front-end Engineer', 'span', 'intro-word opacity-0')}
               <span className="text-base font-normal font-serif text-white text-opacity-20">
                 {breakWord('<br/>', 'span', 'word opacity-0')}
               </span>
             </h2>
-            <h6 className="text-1xl text-[#12597e] font-bold ml-8">
+            <h6 className="text-xl text-[#12597e] font-bold ml-8">
               <span className="intro-word opacity-0">Based in West Java, Indonesia.</span>
             </h6>
             <span className="block font-serif text-white text-opacity-20 ml-4">

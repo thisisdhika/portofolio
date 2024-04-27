@@ -5,7 +5,7 @@ import Header from '@/components/header'
 import Splash from '@/components/splash'
 import SocialMedia from '@/components/social-media'
 import ContactEmail from '@/components/contact-email'
-import { useToggle } from '@uidotdev/usehooks'
+import { useToggle, useMediaQuery } from '@uidotdev/usehooks'
 
 const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [isLoading, toggleLoading] = useToggle(true)

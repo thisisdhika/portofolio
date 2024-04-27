@@ -10,11 +10,22 @@ module.exports = {
       center: true,
       padding: {
         DEFAULT: '1.5rem',
-        sm: '3rem',
+        sm: '2rem',
+        md: '2.5rem',
         lg: '7rem',
         xl: '8rem',
         '2xl': '10rem',
       },
+    },
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
+      tall: { raw: '(min-height: 768px)' },
+      xtall: { raw: '(min-height: 1024px)' },
+      tablet: { raw: 'screen and (min-width: 768px) and (max-width: 1024px) and (min-height: 1024px)' },
     },
     extend: {
       fontFamily: {
