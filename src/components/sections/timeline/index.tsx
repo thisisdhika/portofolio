@@ -214,9 +214,9 @@ export const Timeline: React.FC = () => {
             </div>
             <div className="pl-4 lg:pl-0 col-start-7 lg:col-start-8 col-span-6 lg:col-span-5">
               <Image
-                priority
                 width={390}
                 height={298.67}
+                loading="lazy"
                 alt="PJR & WAL Korlantas"
                 src="/images/pjrstream.png"
                 className="featured-img scale-0 opacity-0 origin-center"
@@ -231,10 +231,10 @@ export const Timeline: React.FC = () => {
           <div className="grid grid-cols-12 gap-4 items-center my-8 lg:my-14">
             <div className="pr-4 lg:pr-0 col-span-6 lg:col-span-5">
               <Image
-                priority
                 width={490}
                 height={188.46}
-                alt="PJR & WAL Korlantas"
+                loading="lazy"
+                alt="Software Seni"
                 src="/images/SS.png"
                 className="featured-img scale-0 opacity-0 origin-center"
               />
