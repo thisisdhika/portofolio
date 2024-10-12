@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <html lang="en" data-theme="elka" className={cn(inter.variable, fira.variable)}>
+    <html lang="en" data-theme="kaa" className={cn(inter.variable, fira.variable)}>
       <body>
         {children}
         <Analytics />

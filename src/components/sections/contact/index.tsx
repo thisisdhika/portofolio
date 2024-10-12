@@ -80,7 +80,7 @@ export const Contact: React.FC = () => {
           </div>
           <span className="font-serif block text-xs word opacity-0">Designed & Build by Dhika P Ardana</span>
           <span className="font-serif block text-xs word opacity-0">
-            Copyright 2024 <strong>ELKA</strong>
+            Copyright 2024 <strong>Thisisdhika</strong>
           </span>
         </div>
       </div>

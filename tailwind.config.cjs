@@ -44,7 +44,7 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        elka: {
+        kaa: {
           primary: '#11405A',
           secondary: '#2D3136',
           accent: '#162B4A',
