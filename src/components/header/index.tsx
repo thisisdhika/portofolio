@@ -136,7 +136,7 @@ const Header: React.FC<IHeaderProps> = ({ animate }) => {
                 </li>
               ))}
             </ul>
-            <button className="btn btn-outline" onClick={() => window.open('/docs/resume.pdf', '_blank')}>Resume</button>
+            <button className="btn btn-outline" onClick={() => window.open('/docs/DhikaPutraArdana-Resume.pdf', '_blank')}>Resume</button>
           </div>
         </div>
       </div>

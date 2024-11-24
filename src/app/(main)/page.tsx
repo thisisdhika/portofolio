@@ -8,7 +8,7 @@ const Home: React.FC = () => {
       <Section.Intro />
       <Section.Timeline />
       <Section.About />
-      <Section.Work />
+      {/* <Section.Work /> */}
       <Section.Contact />
     </>
   )
