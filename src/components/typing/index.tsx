@@ -21,10 +21,18 @@ const Typing: React.FC<TypingProps> = ({ start, texts, delayStart, className }) 
                 if (textRef.current) {
                     textRef.current.innerHTML = currentText;
 
-                    const letters = Array.from(textRef.current.textContent || '');
-                    textRef.current.innerHTML = letters
-                        .map((letter) => `<span class="letter">${letter}</span>`)
-                        .join('');
+                    const letters = Array.from(textRef.current.querySelectorAll("*:not(style)"));
+                    letters.forEach((el) => {
+                        const text = el.textContent || "";
+                        el.innerHTML = text
+                            .split("")
+                            .map((char) =>
+                                char.trim() === ""
+                                    ? "&nbsp;" // Preserve spaces
+                                    : `<span class="letter">${char}</span>`
+                            )
+                            .join("");
+                    });
 
                     anime
                         .timeline({ easing: 'easeOutExpo', loop: false })
