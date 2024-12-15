@@ -3,6 +3,7 @@
 import * as React from 'react'
 import anime from 'animejs'
 import Image from 'next/image'
+import Typing from '@/components/typing'
 import { breakWord } from '@/utils/breakWord'
 import { useIntersectionObserver, useToggle } from '@uidotdev/usehooks'
 
@@ -29,7 +30,7 @@ export const Intro: React.FC = () => {
           duration: 1200,
         })
         .add({
-          targets: ref.current.querySelectorAll('span.intro-word'),
+          targets: ref.current.querySelectorAll('span.intro-word:not(.role-word)'),
           opacity: [0, 1],
           translateZ: 0,
           easing: 'easeOutExpo',
@@ -55,7 +56,7 @@ export const Intro: React.FC = () => {
       <div className="container">
         <div ref={intersectionRef} className="flex items-center">
           <div className="flex-1">
-          {/* the Bruce Banner of Full-Stack Development, and the Peter Parker of React Native Apps. */}
+            {/* the , and the . */}
             <span className="block font-serif text-white text-opacity-20">
               {breakWord('<main>', 'span', 'word opacity-0')}
             </span>
@@ -77,12 +78,20 @@ export const Intro: React.FC = () => {
               </span>
             </h1>
             <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-bold ml-8">
-              {breakWord('the Tony Stark of Frontend Engineering', 'span', 'intro-word opacity-0')}
-              <span className="text-base font-normal font-serif text-white text-opacity-20">
+              {breakWord('the ', 'span', 'intro-word opacity-0')}
+              <Typing
+                delayStart={2800}
+                start={!!entry?.isIntersecting}
+                texts={[
+                  '<span style="color: #FFD700">Tony Stark</span> of Frontend Engineering',
+                  '<span style="color: #32CD32">Bruce Banner</span> of Full-Stack Development',
+                  '<span style="color: #4682B4">Peter Parker</span> of React Native Development'
+                ]} />
+              {/* <span className="text-base font-normal font-serif text-white text-opacity-20">
                 {breakWord('<br/>', 'span', 'word opacity-0')}
-              </span>
+              </span> */}
             </h2>
-            <h6 className="text-xl text-[#12597e] font-bold ml-8">
+            <h6 className="text-xl text-blue-500 font-bold ml-8">
               <span className="intro-word opacity-0">Based in West Java, Indonesia.</span>
             </h6>
             <span className="block font-serif text-white text-opacity-20 ml-4">
@@ -92,7 +101,7 @@ export const Intro: React.FC = () => {
               {breakWord('</main>', 'span', 'word opacity-0')}
             </span>
           </div>
-          <div className="px-10 w-80 2xl:w-96">
+          {/* <div className="px-10 w-80 2xl:w-96">
             <Image
               priority
               width={317}
@@ -101,7 +110,7 @@ export const Intro: React.FC = () => {
               src="/images/memoji-waves.png"
               className="featured-img opacity-0 origin-center"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
