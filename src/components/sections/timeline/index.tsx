@@ -155,9 +155,9 @@ export const Timeline: React.FC = () => {
         <div ref={quoteIntRef} className="quote relative z-10 text-center">
           <h6 className="font-semibold text-base">{breakWord('QUOTE', 'span', 'word opacity-0')}</h6>
           <h1 className="text-3xl font-bold my-16">
-            <span className="word opacity-0">Nothing impossible in any things that live in Internet, </span>
+            <span className="word opacity-0">I belive nothing impossible in any things that live in Internet. </span>
             <br className="hidden xl:block" />
-            <span className="word opacity-0">It'll just need a sense of Time.</span>
+            <span className="word opacity-0"><span className="text-blue-500">But, I can craft it better</span> <small>[Terms and Condition applied]</small>.</span>
           </h1>
           <h5 className="font-semibold text-lg font-serif">
             {breakWord('Dhika P Ardana', 'span', 'word opacity-0')}

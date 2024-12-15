@@ -43,9 +43,9 @@ const ContactEmail: React.FC<IContactEmailProps> = ({ animate }) => {
             <li className="opacity-0">
               <a
                 className="duration-150 text-white text-opacity-50 hover:text-opacity-100 [writing-mode:vertical-lr]"
-                href="mailto:talkwithdhika@gmail.com"
+                href="mailto:dhikaardana87@gmail.com"
               >
-                talkwithdhika@gmail.com
+                dhikaardana87@gmail.com
               </a>
             </li>
           </ul>

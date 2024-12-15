@@ -55,6 +55,7 @@ export const Intro: React.FC = () => {
       <div className="container">
         <div ref={intersectionRef} className="flex items-center">
           <div className="flex-1">
+          {/* the Bruce Banner of Full-Stack Development, and the Peter Parker of React Native Apps. */}
             <span className="block font-serif text-white text-opacity-20">
               {breakWord('<main>', 'span', 'word opacity-0')}
             </span>
@@ -76,7 +77,7 @@ export const Intro: React.FC = () => {
               </span>
             </h1>
             <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-bold ml-8">
-              {breakWord('a Front-end Engineer', 'span', 'intro-word opacity-0')}
+              {breakWord('the Tony Stark of Frontend Engineering', 'span', 'intro-word opacity-0')}
               <span className="text-base font-normal font-serif text-white text-opacity-20">
                 {breakWord('<br/>', 'span', 'word opacity-0')}
               </span>

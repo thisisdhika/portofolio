@@ -74,6 +74,8 @@ export const Contact: React.FC = () => {
               <br />
               {breakWord('I’ll try my best to get back to you!', 'span', 'main-word opacity-0')}
             </p>
+            <br />
+            <a className="btn btn-outline" href="mailto:dhikaardana87@gmail.com">Say Hi</a>
             <span className="absolute top-[-2ch] right-0 translate-x-1/2 font-serif text-white text-opacity-20">
               {breakWord('</p>', 'span', 'word opacity-0')}
             </span>

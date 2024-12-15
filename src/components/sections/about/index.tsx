@@ -76,10 +76,10 @@ export const About: React.FC = () => {
                 {breakWord('<p>', 'span', 'word opacity-0')}
               </span>
               <p className="ml-8">
-                My name is Dhika Putra Ardana, I’m a front-end developer based in Bandung, Indonesia. I’ve
+                My name is <strong>Dhika Putra Ardana</strong>, I’m a front-end developer based in Bandung, Indonesia. I’ve
                 developed many types of front-end applications from well know Campaign Website, E-Commerce
-                Application to Monitoring & Live-Streaming Platform. I also have a skills as Back-end
-                Developer with Laravel, and as a DevOps with DigitalOcean, Docker, etc.
+                Application to Monitoring & Live-Streaming Platform. 
+                {/* I also have a skills as Back-end Developer with Laravel, and as a DevOps with DigitalOcean, Docker, etc. */}
               </p>
               <p className="mt-4 ml-8">
                 I'm passionate about{' '}
@@ -92,11 +92,11 @@ export const About: React.FC = () => {
               <p className="mt-4 ml-8">
                 I’ve been curious all the time about the web technology and many thing that lives on internet.
               </p>
-              <p className="mt-4 ml-8">
+              {/* <p className="mt-4 ml-8">
                 I’m being comfort to work as a Lone Alpha Wolf but I also able to work with the Group as a
                 Sigma Wolf. Nevertheless, the communication is my important thing to interact and discuss with
                 the other member of people.
-              </p>
+              </p> */}
               <span className="block font-serif text-white text-opacity-20 ml-4">
                 {breakWord('</p>', 'span', 'word opacity-0')}
               </span>
