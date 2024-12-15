@@ -83,9 +83,9 @@ export const Intro: React.FC = () => {
                 delayStart={2800}
                 start={!!entry?.isIntersecting}
                 texts={[
-                  '<span style="color: #FFD700">Tony Stark</span><span> of Frontend Engineering</span>',
+                  '<span style="color: #FFD700">Tony Stark</span><span> of Front-end Engineering</span>',
                   '<span style="color: #32CD32">Bruce Banner</span><span> of Full-Stack Development</span>',
-                  '<span style="color: #4682B4">Peter Parker</span><span> of React Native Development</span>'
+                  '<span style="color: #4682B4">Peter Parker</span><span> of React-Native Development</span>'
                 ]} />
               {/* <span className="text-base font-normal font-serif text-white text-opacity-20">
                 {breakWord('<br/>', 'span', 'word opacity-0')}

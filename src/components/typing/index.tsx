@@ -62,7 +62,7 @@ const Typing: React.FC<TypingProps> = ({ start, texts, delayStart, className }) 
     return (
         <span
             ref={textRef}
-            className={cn('overflow-hidden', className)}
+            className={cn(className)}
         ></span>
     );
 };
